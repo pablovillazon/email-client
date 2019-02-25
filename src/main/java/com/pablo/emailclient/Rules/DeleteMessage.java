@@ -3,11 +3,20 @@ package com.pablo.emailclient.Rules;
 import com.pablo.emailclient.Components.Element;
 import com.pablo.emailclient.Controllers.FileController;
 
-import java.util.List;
-
 public class DeleteMessage {
+    private Element container;
+    private Element remove;
+    private FileController.DeletionType type;
 
-    public void executeDelete(List<Element> message, FileController.DeletionType deletionType){
-        System.out.println("Deleting messages..." + deletionType.toString());
+    public DeleteMessage(Element containerElement, Element deletedElement, FileController.DeletionType deletionType){
+        container = containerElement;
+        remove = deletedElement;
+        type = deletionType;
+    }
+
+    public void executeDelete(){
+        System.out.println("Deleting messages..." + type.toString());
+
+        container.RemoveChild(remove);
     }
 }

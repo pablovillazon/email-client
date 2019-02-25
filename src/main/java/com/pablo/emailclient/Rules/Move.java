@@ -15,8 +15,8 @@ public class Move implements IAction {
     }
 
     @Override
-    public boolean ExecuteAction() {
+    public void ExecuteAction() {
         System.out.println("moving: " + msgId + " To: "+ destinationFolder);
-        return true;
+
     }
 }

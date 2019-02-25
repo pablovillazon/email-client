@@ -1,37 +1,25 @@
 package com.pablo.emailclient.Rules;
 
-import com.pablo.emailclient.Components.Element;
-import com.pablo.emailclient.Components.EmailMessage;
-
-import java.util.List;
-import java.util.UUID;
 
 public class MoveMessageAction implements IAction {
-    private List<Element> messagesToMove;
-    private Element newDestination;
 
-    public void setNewDestination(Element newDestination) {
-        this.newDestination = newDestination;
-    }
+    private MoveMessage moveMessage;
 
-    public void setMessagesToMove(List<Element> messages){
-        this.messagesToMove = messages;
+    public void setMoveMessage(MoveMessage moveMessage){
+        this.moveMessage = moveMessage;
     }
 
     @Override
     public void ExecuteAction() {
-
-        for(Element element : messagesToMove)
+        System.out.println("Action Id: " + Thread.currentThread().getId() + " executing Move action.");
+        if(moveMessage != null)
         {
-            newDestination.AddChildElement(element);
-            /*
-            if(element.getType() == Element.ElementType.Message)
-            {
-                newDestination.AddChildElement(element);
-            }
-            */
+            moveMessage.executeMove();
         }
-
-
+        try{
+            Thread.sleep(1000);
+        }catch (InterruptedException e){
+            Thread.currentThread().interrupt();
+        }
     }
 }

@@ -1,5 +1,5 @@
 package com.pablo.emailclient.Rules;
 
-public interface ICondition
-{
+public interface ICondition{
+    void Evaluate();
 }
