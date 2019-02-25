@@ -17,6 +17,7 @@ public class FileController {
     private Element rootFolder;
 
     public enum OperationResult{SUCCESS, FAIL, INVALIDMESSAGE};
+    public enum DeletionType{HARD, SOFT}
 
     public FileController(){
 

@@ -2,8 +2,9 @@ package com.pablo.emailclient.Components;
 
 import com.pablo.emailclient.Rules.IAction;
 import com.pablo.emailclient.Rules.Move;
-import sun.plugin2.message.Message;
+//import sun.plugin2.message.Message;
 
+import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -99,7 +100,8 @@ public class Folder extends Element {
     private boolean MoveMessage(String destination, Element message)
     {
         IAction move = new Move( ((EmailMessage) message).getMsgId(), destination);
-        return move.ExecuteAction();
+        move.ExecuteAction();
+        return true;
     }
 
     @Override
